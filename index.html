@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <script defer src="app.js"></script>
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @font-face {
+      font-family: "Rubik";
+      src: url(https://fonts.google.com/specimen/Rubik);
+    }
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+      color: white;
+      font-family: "Rubik";
+    }
+    body{
+      background-color: hsl(226, 43%, 10%);
+      
+    }
+    #container{
+      
+      padding: 4em;
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+
+    }
+    header{
+      max-width: 500px;
+    }
+   .hero{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    background-color: hsl(246, 80%, 60%);
+    border-radius: 1em 1em 0 0;
+   }
+   ul{
+    display: flex;
+    justify-content: space-around;
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 0 0 1em 1em;
+   }
+   li{
+    list-style: none;
+    padding: 1em;
+   }
+   button{
+    background:none;
+    border: 0px;
+    cursor: pointer;
+    font-size: 1rem;
+   }
+   button,p, aside{
+    text-decoration: none;
+    color: hsl(236, 100%, 87%);
+   }
+   button:hover{
+    transition: color 0.25s ease-in-out ;
+    color: white;
+   }
+   svg{
+    fill: #BBC0FF; 
+    box-sizing: content-box;
+    padding: 0.25em;
+    
+   }
+   svg:hover{
+    cursor: pointer;
+    transition: fill 0.125s ease-in-out ;
+
+    fill: white;
+
+   }
+   
+#orangeColour{
+    background-color: hsl(15, 100%, 70%);
+   }
+   #blueColour{
+    background-color: hsl(195, 74%, 62%) ;
+   }
+   #redColour{
+    background-color: hsl(348, 100%, 68%);
+   
+   }
+   #greenColour{
+    background-color: hsl(145, 58%, 55%) ;
+   }
+   #purpleColour{
+    background-color:  hsl(264, 64%, 52%);
+   }
+   #yellowColour{
+    background-color: hsl(43, 84%, 65%);
+   }
+
+   h1{
+    font-size: clamp(1.25rem, 3vw + 1rem, 3rem);
+  }
+  .card{
+    background-color: hsl(235, 46%, 20%);
+
+  }
+  .card > div{
+    height: 3em;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+  .card > div > img{
+    margin-right: 1em;
+    
+  }
+  h3{
+    font-size: 2em;
+    font-weight: 200;
+  }
+  .p2{
+    padding: 1em;
+  }
+  .p2 > *{
+    margin-bottom: 1em;
+  }
+  .p2:hover{
+    cursor: pointer;
+    transition: color 0.25s ease-in-out ;
+
+    background-color: hsl(236, 38%, 41%);
+  }
+  .areaAndOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .displayBlock{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+      @media (min-width: 600px){
+        .displayBlock{
+            display:block;  
+          }
+          .displayBlock > *:not(:last-child), .hero > *:not(:last-child)  {
+            margin-bottom: 1em;
+
+          }
+        
+
+
+
+        /* grid configuration */
+        #container{
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+      }
+      header{
+        grid-row: 2  / span 4;
+        grid-column: 1;
+      }
+    
+      #orange{
+        grid-row: 1 / span 2;
+        grid-column: 2;
+      }
+      #blue{
+        grid-row: 1 / span 2;
+        grid-column: 3;
+      }
+      #red{
+        grid-row: 3 / span 2;
+        grid-column: 2;
+      }
+      #green{
+        grid-row: 3 / span 2;
+        grid-column: 3;
+      }
+      #purple{
+        grid-row: 5 / span 2;
+        grid-column: 2;
+      }
+      #yellow{
+        grid-row: 5 / span 2;
+        grid-column: 3;
+      
+      }
+
+
+      }
+    @media (min-width:1200px){
+      #container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1em;
+        font-size: 1.25rem;
+      }
+      header{
+        align-self: center;
+        grid-row: 1 / span 2;
+        grid-column: 1;
+      }
+    
+      #orange{
+        grid-row: 1;
+        grid-column: 2;
+      }
+      #blue{
+        grid-row: 1;
+        grid-column: 3;
+      }
+      #red{
+        grid-row: 1;
+        grid-column: 4;
+      }
+      #green{
+        grid-row: 2;
+        grid-column: 2;
+      }
+      #purple{
+        grid-row: 2;
+        grid-column: 3;
+      }
+      #yellow{
+        grid-row: 2;
+        grid-column: 4;
+      
+      }
+      
+    }
+    
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section id="container">
+    <header>
+      <div class="hero displayBlock">
+        <img src="images/image-jeremy.png" alt="" width="100px">
+        <div>
+          <p>Report for</p>
+          <h1>Jeremy Robson</h1>
+        </div>
+      </div>
+      <ul class="displayBlock">
+        <li><button id = "daily">Daily</button></li>
+        <li><button  id="weekly">Weekly</button></li>
+        <li><button  id="monthly">Monthly</button></li>
+      </ul>
+      
+    </header>
+<!-- we can control position with whole thing, -->
+    <div class="card" id = "orange" >
+      <div id = "orangeColour">
+        <img src="images/icon-work.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Work</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="work">
+          <h3>5hrs</h3>
+          <aside>Last Week - 7hrs</aside>
+        </div>
+      </section>
+    </div>
+    <div class="card" id = "blue" >
+      <div id = "blueColour">
+        <img src="images/icon-play.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Play</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="play">
+          <!-- h3 and aside are both block elements, changing container to display block should have done the job -->
+          <h3>1hr</h3>
+          <aside>2hrs</aside>
+        </div>
+      </section>
+    </div>
+    <div class="card" id = "red" >
+      <div id = "redColour">
+        <img src="images/icon-study.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Study</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="study">
+          <!-- h3 and aside are both block elements, changing container to display block should have done the job -->
+          <h3>0hrs</h3>
+          <aside>Last Week - 1hr</aside>
+        </div>
+      </section>
+    </div>
+    <div class="card" id="green" >
+      <div id = "greenColour">
+        <img src="images/icon-exercise.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Exercise</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="exercise">
+          <!-- h3 and aside are both block elements, changing container to display block should have done the job -->
+          <h3>1hr</h3>
+          <aside>1hr</aside>
+        </div>
+      </section>
+    </div>
+    <div class="card" id="purple" >
+      <div id = "purpleColour">
+        <img src="images/icon-social.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Social</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="social">
+          <!-- h3 and aside are both block elements, changing container to display block should have done the job -->
+          <h3>1hr</h3>
+          <aside>Last Week - 3hrs</aside>
+        </div>
+      </section>
+    </div>
+    <div class="card" id = "yellow">
+      <div id = "yellowColour" >
+        <img src="images/icon-self-care.svg" alt="">
+      </div>
+      <section class="p2">
+        <div class="areaAndOptions">
+          <h2>Self Care</h2>
+          <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+            <path class="svg" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"fill-rule="evenodd" />
+        </svg>
+              </div>
+        <div class="displayBlock" id="selfcare" >
+          <!-- h3 and aside are both block elements, changing container to display block should have done the job -->
+          <h3>0hrs</h3>
+          <aside>Last Week - 1hr</aside>
+        </div>
+      </section>
+    </div>
+   
+
+
+  </section>
+</body>
+</html>
